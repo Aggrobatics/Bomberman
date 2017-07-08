@@ -34,7 +34,7 @@ void UBombFactory_CPP::TickComponent(float DeltaTime, ELevelTick TickType, FActo
 
 bool UBombFactory_CPP::DropBomb(FVector position, int power, int blastRange, float detonationDelayS)
 {
-	if ((power < 1) || (blastRange < 1) || (detonationDelayS <= 1))
+	if ((power < 1) || (blastRange < 1) || (detonationDelayS < 1))
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Illegal Parameters @ UBombFactory_CPP::DropBomb()"));
 		return false;
@@ -61,6 +61,7 @@ bool UBombFactory_CPP::DropBomb(FVector position, int power, int blastRange, flo
 	bomb->SetRange(blastRange);
 	bomb->SetPower(power);
 	bomb->SetDetonationDelay(detonationDelayS);
+	bomb->Instigator = Instigator;
 	bomb->FinishSpawning(transform, true);
 	bomb->BombExploded.BindUObject(this, &UBombFactory_CPP::OnBombExploded);
 

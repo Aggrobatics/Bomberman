@@ -44,4 +44,7 @@ public:
 
 	UPROPERTY(BlueprintAssignable, Category = "Event Dispatchers")
 		FAnyBombExplodedDelegate AnyBombExploded;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		APawn* Instigator;
 };
