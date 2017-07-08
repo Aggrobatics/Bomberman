@@ -8,7 +8,7 @@
 
 DECLARE_DELEGATE(FBombExplodedDelegate);
 
-UCLASS()
+UCLASS(abstract)
 class BOMBERMAN_API ABombBase_CPP : public AActor
 {
 	GENERATED_BODY()
